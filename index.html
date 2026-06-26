@@ -1,1 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Jong Young Flower Market — Analytics & Consulting Portfolio</title>
+  <meta name="description" content="Interactive business intelligence portfolio and strategic consulting case study for Jong Young Flower Market. Highlighting revenue simulators, NLP sentiment dashboards, and operational insights.">
+  <meta name="keywords" content="Data Analytics, Business Intelligence, Sentiment Analysis, Financial Modeling, Pricing Strategy, Flower Market, Consulting Portfolio">
+  <meta name="author" content="Jong Young Flower Market Analytics Team">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Jong Young Flower Market — Analytics & Consulting Portfolio">
+  <meta property="og:description" content="Explore interactive financial simulators and sentiment dashboards demonstrating customer success and revenue optimization capabilities.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Global Variables & Theme Design System */
+    :root {
+      --bg-dark: #070b0a;
+      --bg-slate: #0d1411;
+      --primary: #1D9E75;
+      --primary-glow: rgba(29, 158, 117, 0.15);
+      --accent: #D4AF37;
+      --accent-glow: rgba(212, 175, 55, 0.2);
+      --text-main: #f3f5f4;
+      --text-muted: #9bb0a5;
+      --glass-bg: rgba(13, 24, 20, 0.7);
+      --glass-border: rgba(29, 158, 117, 0.2);
+      --glass-border-hover: rgba(212, 175, 55, 0.4);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(29, 158, 117, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--glass-border);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    /* Container layout */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header Navigation */
+    header {
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 10, 0.8);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .brand-logo svg {
+      fill: var(--bg-dark);
+    }
+
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: linear-gradient(to right, var(--text-main), var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      transition: var(--transition-smooth);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0 4rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(29, 158, 117, 0.1);
+      border: 1px solid rgba(29, 158, 117, 0.3);
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      animation: pulse-glow 3s infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(29, 158, 117, 0.1); }
+      50% { box-shadow: 0 0 15px rgba(29, 158, 117, 0.3); }
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.15;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--primary) 30%, var(--accent) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-desc {
+      max-width: 760px;
+      margin: 0 auto 3.5rem;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Key Statistics Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stat-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      backdrop-filter: blur(12px);
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--glass-border-hover);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-card:hover::before {
+      opacity: 1;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-main);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Divider */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(29, 158, 117, 0.2), transparent);
+      margin: 5rem 0;
+    }
+
+    /* Section Header Styles */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      font-weight: 700;
+    }
+
+    /* Interactive Showcase (Cards for internal files) */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .showcase-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      backdrop-filter: blur(16px);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .showcase-card::after {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(29, 158, 117, 0.15) 0%, transparent 70%);
+      top: -50px;
+      right: -50px;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--glass-border-hover);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .showcase-card:hover::after {
+      transform: scale(1.3);
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .card-icon-container {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      transition: var(--transition-smooth);
+    }
+
+    .showcase-card:hover .card-icon-container {
+      color: var(--accent);
+      background: rgba(212, 175, 55, 0.08);
+      border-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .card-body p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .card-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    .highlight-icon {
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .showcase-card:hover .highlight-icon {
+      color: var(--accent);
+    }
+
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--primary);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      margin-top: auto;
+    }
+
+    .card-action svg {
+      transition: var(--transition-smooth);
+    }
+
+    .showcase-card:hover .card-action {
+      color: var(--accent);
+    }
+
+    .showcase-card:hover .card-action svg {
+      transform: translateX(5px);
+    }
+
+    /* Core Competencies / Skill Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: var(--transition-smooth);
+    }
+
+    .skill-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--glass-border);
+      transform: translateY(-3px);
+    }
+
+    .skill-icon-box {
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .skill-card h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .skill-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Interactive Timeline / Methodology */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background: var(--glass-border);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+    }
+
+    .timeline-item {
+      padding: 2rem 3rem;
+      position: relative;
+      width: 50%;
+      transition: var(--transition-smooth);
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    @media (max-width: 768px) {
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 5rem;
+        padding-right: 1rem;
+        text-align: left !important;
+      }
+    }
+
+    .timeline-dot {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: var(--bg-dark);
+      border: 3px solid var(--primary);
+      border-radius: 50%;
+      top: 2.5rem;
+      z-index: 5;
+      transition: var(--transition-smooth);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -9px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -9px;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    @media (max-width: 768px) {
+      .timeline-dot {
+        left: 22px !important;
+      }
+    }
+
+    .timeline-date {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      padding: 1.5rem;
+      border-radius: 16px;
+      transition: var(--transition-smooth);
+    }
+
+    .timeline-item:hover .timeline-content {
+      border-color: var(--glass-border-hover);
+    }
+
+    .timeline-content h4 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Notion CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(29, 158, 117, 0.08) 0%, rgba(212, 175, 55, 0.03) 100%);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin: 4rem auto;
+      max-width: 1000px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-desc {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+    }
+
+    .btn-notion {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, var(--primary), #167a5a);
+      color: white;
+      font-weight: 600;
+      padding: 1rem 2.25rem;
+      border-radius: 100px;
+      box-shadow: 0 8px 24px var(--primary-glow);
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+
+    .btn-notion:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(29, 158, 117, 0.4);
+      background: linear-gradient(135deg, #24b587, var(--primary));
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      color: var(--text-main);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-link {
+      transition: var(--transition-smooth);
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="brand" id="nav-brand-link">
+        <div class="brand-logo">
+          <!-- Flower Icon in SVG -->
+          <svg width="18" height="18" viewBox="0 0 24 24">
+            <path d="M12 2C11.5 5 9.5 7 6.5 7.5c-3 .5-4.5 2-4.5 3.5s1.5 3 4.5 3.5c3 .5 5 2.5 5.5 5.5.5 3 2 4.5 3.5 4.5s3-1.5 3.5-4.5c.5-3 2.5-5 5.5-5.5 3-.5 4.5-2 4.5-3.5s-1.5-3-4.5-3.5c-3-.5-5-2.5-5.5-5.5-.5-3-2-4.5-3.5-4.5S12.5 1 12 2z"/>
+          </svg>
+        </div>
+        <span class="brand-name">Jong Young Flower Market</span>
+      </a>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#showcase" class="nav-link" id="nav-deliverables-link">Deliverables</a>
+        <a href="#skills" class="nav-link" id="nav-skills-link">Capabilities</a>
+        <a href="#methodology" class="nav-link" id="nav-methodology-link">Methodology</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero-section">
+      <div class="container">
+        <div class="hero-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="12 8 8 12 12 16 16 12 12 8"></polygon>
+          </svg>
+          Interactive Case Study
+        </div>
+        <h1 class="hero-title">Cultivating Growth Through <br><span>Data-Driven Operations</span></h1>
+        <p class="hero-desc">
+          An end-to-end consulting and business intelligence case study mapping customer sentiment and Google Reviews analysis to quantified financial modeling and dynamic operational adjustments.
+        </p>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">+$35K</div>
+            <div class="stat-label">Projected ROI</div>
+            <div class="stat-desc">Calculated annual revenue increase</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">75%</div>
+            <div class="stat-label">Positive Sentiment</div>
+            <div class="stat-desc">Based on Google Maps review mining</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Strategic Pillars</div>
+            <div class="stat-desc">Prioritized business recommendations</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Deliverables Showcase Section -->
+    <section class="container" id="showcase">
+      <div class="section-header">
+        <p class="section-subtitle">Interactive Solutions</p>
+        <h2 class="section-title">Portfolio Deliverables</h2>
+      </div>
+
+      <div class="showcase-grid">
+        <!-- Dashboard Card -->
+        <article class="showcase-card" id="card-dashboard">
+          <div>
+            <div class="card-meta">
+              <div class="card-icon-container">
+                <!-- Dashboard Grid Icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="9"></rect>
+                  <rect x="14" y="3" width="7" height="5"></rect>
+                  <rect x="14" y="12" width="7" height="9"></rect>
+                  <rect x="3" y="16" width="7" height="5"></rect>
+                </svg>
+              </div>
+              <span class="card-tag">Business Intelligence</span>
+            </div>
+
+            <div class="card-body">
+              <h3>Customer Insights Dashboard</h3>
+              <p>
+                Visualizes sentiment analysis patterns from customer reviews. Features theme mapping, 12-month satisfaction trends, and targeted response paths.
+              </p>
+              
+              <div class="card-highlights">
+                <div class="highlight-item">
+                  <span class="highlight-icon">✓</span>
+                  <span><strong>Review Sentiment Trends</strong> — Track satisfaction curves over time</span>
+                </div>
+                <div class="highlight-item">
+                  <span class="highlight-icon">✓</span>
+                  <span><strong>Theme Extraction</strong> — Automatic detection of service, price, & quality highlights</span>
+                </div>
+                <div class="highlight-item">
+                  <span class="highlight-icon">✓</span>
+                  <span><strong>Strategic Recommendations</strong> — Visual feedback on five high-impact operations</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="jong_young_insights_dashboard.html" class="card-action" id="link-dashboard">
+            Launch Dashboard
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Pricing Simulator Card -->
+        <article class="showcase-card" id="card-simulator">
+          <div>
+            <div class="card-meta">
+              <div class="card-icon-container">
+                <!-- Trending Up Icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </div>
+              <span class="card-tag">Financial Modeling</span>
+            </div>
+
+            <div class="card-body">
+              <h3>Dynamic Pricing & Revenue Optimizer</h3>
+              <p>
+                Simulates financial elasticity. Adjust cost structures, product prices, seasonality, and conversion rates to forecast margins, ROI, and scenarios in real time.
+              </p>
+
+              <div class="card-highlights">
+                <div class="highlight-item">
+                  <span class="highlight-icon">✓</span>
+                  <span><strong>Scenario Analysis</strong> — Compare Conservative, Moderate, and Aggressive models</span>
+                </div>
+                <div class="highlight-item">
+                  <span class="highlight-icon">✓</span>
+                  <span><strong>20+ Variable Sliders</strong> — Adjust COGS, pricing markup, wages, and seasons</span>
+                </div>
+                <div class="highlight-item">
+                  <span class="highlight-icon">✓</span>
+                  <span><strong>Interactive Projections</strong> — Instantly updates annual margins and profit splits</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="jong_young_pricing_simulator.html" class="card-action" id="link-simulator">
+            Launch Revenue Simulator
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Skills Section -->
+    <section class="container" id="skills">
+      <div class="section-header">
+        <p class="section-subtitle">Core Expertise</p>
+        <h2 class="section-title">Capabilities Demonstrated</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon-box">
+            <!-- Code/Tags Icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h4>Data & AI Workflows</h4>
+          <p>Scraping reviews with Python and Selenium. Natural Language Processing theme extraction using LLM prompts for structured sentiment analysis.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-box">
+            <!-- Pie Chart Icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+              <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+            </svg>
+          </div>
+          <h4>BI & Data Storytelling</h4>
+          <p>Interactive client dashboards using Chart.js. Intuitive executive layouts designed to translate statistical trends into business value.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-box">
+            <!-- Percent/Dollar Icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <h4>Financial Modeling</h4>
+          <p>Mathematical modeling of margins, COGS, seasonality multipliers, and labor expenses. Real-time client-side scenario simulations.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-box">
+            <!-- Briefcase Icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <h4>Strategic Consulting</h4>
+          <p>Defining actionable operational strategies: wedding & event expansions, tiered margins, staffing revisions, and brand protection roadmaps.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Methodology Timeline -->
+    <section class="container" id="methodology">
+      <div class="section-header">
+        <p class="section-subtitle">Process Lifecycle</p>
+        <h2 class="section-title">Case Study Methodology</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Phase 1</div>
+          <div class="timeline-content">
+            <h4>Data Collection & Mining</h4>
+            <p>Automated retrieval of verified customer reviews via custom Python scrapers. Extraction of raw rating curves and chronological metrics.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Phase 2</div>
+          <div class="timeline-content">
+            <h4>Sentiment NLP Parsing</h4>
+            <p>Classification of textual nuances into Positive, Neutral, and Negative segments. Theme association to trace service bottlenecks and product value drivers.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Phase 3</div>
+          <div class="timeline-content">
+            <h4>Financial Modeling</h4>
+            <p>Formulation of core unit economics, seasonality curves, and marketing acquisition costs. Translating operational gaps into quantifiable pricing variables.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Phase 4</div>
+          <div class="timeline-content">
+            <h4>Business Strategy & Dashboarding</h4>
+            <p>Synthesizing visual dashboards and flexible simulators. Building executive recommendations with projections, budgeting bounds, and ROI paths.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notion CTA Section -->
+    <section class="container">
+      <div class="cta-section" id="notion-cta">
+        <h3 class="cta-title">Looking for the Full Research?</h3>
+        <p class="cta-desc">
+          Browse the complete project workspace on Notion containing deep-dive analysis details, full review texts, methodology specifications, and ROI equations.
+        </p>
+        <a href="https://notion.so" target="_blank" rel="noopener noreferrer" class="btn-notion" id="btn-notion-workspace">
+          <!-- Notion logo SVG representation -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.223 3.197c.504-.42 1.344-.79 2.052-.79h10.963c.668 0 1.258.4 1.332.923l1.11 7.828c.032.227.098.817.158 1.13l.89 5.86c.073.483-.178.86-.718.86h-3.322c-.443 0-.71-.24-.805-.623l-.707-3.037c-.126-.54-.53-.948-1.077-.948H9.95c-.53 0-.94.398-1.066.938l-.756 3.11c-.085.352-.395.56-.816.56H3.882c-.524 0-.79-.376-.713-.86l1.054-6.9c.076-.498.15-1.026.175-1.424l-.175-9.61c-.006-.407.497-1.127.997-1.127zm11.39 9.387c.72 0 1.3-.43 1.3-1.074 0-.64-.58-1.07-1.3-1.07-.72 0-1.3.43-1.3 1.07 0 .644.58 1.074 1.3 1.074zm-7.14 0c.72 0 1.3-.43 1.3-1.074 0-.64-.58-1.07-1.3-1.07s-1.3.43-1.3 1.07c0 .644.58 1.074 1.3 1.074z"/>
+          </svg>
+          Open Notion Workspace
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">Jong Young Flower Market Portfolio</div>
+      <nav class="footer-links" aria-label="Footer Navigation">
+        <a href="#showcase" class="footer-link">Deliverables</a>
+        <a href="#skills" class="footer-link">Capabilities</a>
+        <a href="#methodology" class="footer-link">Methodology</a>
+      </nav>
+      <p>&copy; 2026 Analytics Case Study. Self-contained frontend deliverable.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
